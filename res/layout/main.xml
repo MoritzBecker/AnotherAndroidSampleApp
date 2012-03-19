@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout
+ 		xmlns:android="http://schemas.android.com/apk/res/android"
+ 		xmlns:mad="http://schemas.android.com/apk/res/le.sample"
+		android:orientation="vertical"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+        android:gravity="center_horizontal"
+		>
+
+        <!--
+        Create a new MadvertiseView. You can create multiple of them, e. g. one fixed and another in a ListView.
+        However, it is not recommended to use more than four of them.
+        You can set the following attributes:
+        textColor [color], the color your text ad's text should have. E.g. '#012'.
+        textSize [integer], the size of your text ad's text. Maximum size is 20, minimum is 10.
+        backgroundColor [color], the color the background of your text ads. E.g. '#012'.
+        secondsToRefresh [integer], the time after which a new ad will be loaded. Minimum is 30.
+        bannerType [mma|leaderboard|fullscreen|portrait|landscape|medium_rectangle], the ad type (size) of your banner.
+                    You can also chain types like that: 'mma,portrait,landscape'.
+                    The sizes are: mma 320x53, leaderboard 728x90, fullcreen 768x768, portrait 766x66, landscape 1024x66, medium_rectangle 300x250.
+        animation [fade|left_to_right|top_down], the way new ads will be animated. 'fade' is default.
+        deliverOnlyText [true|false], whether your ad only displays text or not. This only has effect on mma type banners.
+        placement_type [inline|interstitial], only for rich_media ads, default is inline. When declaring the placement_type as interstitial, you have to place your ad in
+        			a way that it is always visible, or, in other words, can not be scrolled out of the visible part of the screen. Basically interstitial ads do always have a
+        			close button, whereas inline ads might have none (if so, it's provided by the ad itself).
+        mraid [boolean] whether you want to display rich media ads or not, default is true. Please make sure to overwrite onApplicationPause() and onApplicationResume()
+        			in your MadvertiseCallbackListener appropriately when setting this flag to true. MRAID ads will have the initial size defined with the parameter "bannerType"
+        			(see above). They can expand on a click (expanded is defined by the ad itself, which might be fullscreen).
+        -->
+		<de.madvertise.android.sdk.MadvertiseView
+			android:id="@+id/madad"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			mad:backgroundColor="#555"
+			mad:textColor="#FF1F1F"
+			mad:bannerType="mma"
+            mad:animation="top_down"
+            mad:isTestMode="true"
+            mad:textSize="20"
+            mad:deliverOnlyText="false"
+            mad:placement_type="interstitial"
+            mad:secondsToRefresh="60"
+		/>
+		    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hello" />
+ </LinearLayout>
